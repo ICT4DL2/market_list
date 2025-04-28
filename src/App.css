@@ -1,0 +1,180 @@
+:root {
+  --primary-color: white;
+  --secondary-color: rgb(186, 230, 255);
+}
+
+body {
+  margin: 0;
+  background-color: rgb(22, 22, 22);
+  color: var(--primary-color);
+  font-family: Arial, sans-serif;
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+#root {
+  --primary-color: white;
+  --secondary-color: rgb(186, 230, 255);
+}
+
+/* Structure principale */
+.body {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  overflow-x: hidden; /* Ajoute cette règle pour éviter le débordement horizontal */
+}
+
+/* Zone principale */
+.main-section {
+  flex: 1;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  overflow: hidden; /* Empêche tout débordement dans cette section */
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(51, 51, 51);
+  padding: 10px 20px;
+  border-bottom: 1px solid rgb(94, 94, 94);
+}
+
+/* Entrée et Liste */
+.entry, .list {
+  background-color: rgb(51, 51, 51);
+  border: 1px solid rgb(94, 94, 94);
+  border-radius: 9px;
+  padding: 15px;
+  margin-top: 20px;
+  width: 100%;
+  box-sizing: border-box; /* Important pour éviter le débordement */
+}
+
+/* Chaque élément de la liste */
+.list-item {
+  line-height: 1.5rem;
+  padding: 10px 0;
+  border-bottom: 1px solid rgb(94, 94, 94);
+}
+
+/* Menu latéral */
+.menu-bar {
+  position: fixed;
+  left: -271px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: rgb(22, 22, 22);
+  border-right: 1px solid rgb(73, 73, 73);
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto; /* Assure-toi que le contenu du menu soit scrollable si nécessaire */
+}
+
+.menu-bar.active {
+  left: 0;
+}
+
+/* Items du Menu */
+.menu-bar-item {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-bar-item:hover {
+  background-color: rgba(128, 128, 128, 0.4);
+}
+
+/* Overlay sombre */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 500;
+}
+
+/* Champs input */
+input {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border: 1px solid rgb(94, 94, 94);
+  border-radius: 5px;
+  background-color: rgb(43, 43, 43);
+  color: white;
+  box-sizing: border-box; /* Important pour éviter le débordement */
+}
+
+/* Sélecteur de quantité */
+.qtyselector {
+  width: 50px;
+}
+
+/* Dropdown */
+select {
+  padding: 7px;
+  border-radius: 5px;
+  background-color: rgb(43, 43, 43);
+  color: white;
+  border: 1px solid rgb(94, 94, 94);
+  box-sizing: border-box; /* Important pour éviter le débordement */
+}
+
+/* Bouton d'ouverture du menu */
+.menu-toggle-button {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+.menu-toggle-button:hover {
+  color: var(--secondary-color);
+}
+
+/* Responsive pour téléphone */
+@media (max-width: 768px) {
+  .menu-bar {
+    width: 200px;
+  }
+
+  .main-section {
+    width: 100vw;
+    padding: 0.5rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100vw;
+  }
+
+  .menu-bar-item {
+    font-size: 18px;
+  }
+
+  .body {
+    flex-direction: column;
+  }
+
+  .list {
+    width: 90%;
+  }
+
+  input {
+    width: 80%;
+  }
+}
