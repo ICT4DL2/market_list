@@ -1,19 +1,33 @@
 :root {
-  --primary-color: white;
-  --secondary-color: rgb(186, 230, 255);
+  --color-primary: white;
+  --color-secondary: rgb(186, 230, 255);
+  --color-tertiary: rgb(94, 94, 94);
+
+  --color-bg: rgb(22, 22, 22);
+  --color-surface: rgb(51, 51, 51);
+  --color-border: rgb(94, 94, 94);
+  --color-hover-surface: rgba(128, 128, 128, 0.4);
+  --color-overlay: rgba(0, 0, 0, 0.6);
+
+  --color-input-bg: rgb(43, 43, 43);
+  --color-input-border: rgb(94, 94, 94);
+  --color-input-text: white;
+
+  --color-button-text: black;
 }
 
 body {
   margin: 0;
-  background-color: rgb(22, 22, 22);
-  color: var(--primary-color);
+  background-color: var(--color-bg);
+  color: var(--color-primary);
   font-family: Arial, sans-serif;
-  overflow-x: hidden; /* Empêche le débordement horizontal */
+  overflow-x: hidden;
 }
 
 #root {
-  --primary-color: white;
-  --secondary-color: rgb(186, 230, 255);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-tertiary: var(--color-tertiary);
 }
 
 /* Structure principale */
@@ -21,7 +35,7 @@ body {
   display: flex;
   flex-direction: row;
   min-height: 100vh;
-  overflow-x: hidden; /* Ajoute cette règle pour éviter le débordement horizontal */
+  overflow-x: hidden;
 }
 
 /* Zone principale */
@@ -29,7 +43,7 @@ body {
   flex: 1;
   padding: 20px;
   transition: margin-left 0.3s ease;
-  overflow: hidden; /* Empêche tout débordement dans cette section */
+  overflow: hidden;
 }
 
 /* Header */
@@ -37,28 +51,46 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(51, 51, 51);
+  background-color: var(--color-surface);
   padding: 10px 20px;
-  border-bottom: 1px solid rgb(94, 94, 94);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Buttons */
+.big-button {
+  height: 80%;
+  width: calc(50vw - 4px);
+  text-align: center;
+  line-height: 30px;
+  color: var(--color-button-text);
+  padding-top: 15px;
+  border-radius: 10px;
+  transition: ease-in 0.5s;
+}
+
+.big-button:hover {
+  filter: brightness(87%);
+  transition: ease-in 0.5s;
 }
 
 /* Entrée et Liste */
 .entry, .list {
-  background-color: rgb(51, 51, 51);
-  border: 1px solid rgb(94, 94, 94);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 9px;
   padding: 15px;
   margin-top: 20px;
   width: 100%;
-  box-sizing: border-box; /* Important pour éviter le débordement */
+  box-sizing: border-box;
 }
 
 /* Chaque élément de la liste */
 .list-item {
   line-height: 1.5rem;
   padding: 10px 0;
-  border-bottom: 1px solid rgb(94, 94, 94);
+  border-bottom: 1px solid var(--color-border);
 }
+
 
 /* Menu latéral */
 .menu-bar {
@@ -67,12 +99,12 @@ body {
   top: 0;
   width: 250px;
   height: 100%;
-  background-color: rgb(22, 22, 22);
-  border-right: 1px solid rgb(73, 73, 73);
+  background-color: var(--color-bg);
+  border-right: 1px solid var(--color-border);
   padding: 20px;
   transition: left 0.3s ease;
   z-index: 1000;
-  overflow-y: auto; /* Assure-toi que le contenu du menu soit scrollable si nécessaire */
+  overflow-y: auto;
 }
 
 .menu-bar.active {
@@ -92,7 +124,7 @@ body {
 }
 
 .menu-bar-item:hover {
-  background-color: rgba(128, 128, 128, 0.4);
+  background-color: var(--color-hover-surface);
 }
 
 /* Overlay sombre */
@@ -102,7 +134,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--color-overlay);
   z-index: 500;
 }
 
@@ -110,11 +142,11 @@ body {
 input {
   padding: 0.5rem;
   margin-right: 0.5rem;
-  border: 1px solid rgb(94, 94, 94);
+  border: 1px solid var(--color-input-border);
   border-radius: 5px;
-  background-color: rgb(43, 43, 43);
-  color: white;
-  box-sizing: border-box; /* Important pour éviter le débordement */
+  background-color: var(--color-input-bg);
+  color: var(--color-input-text);
+  box-sizing: border-box;
 }
 
 /* Sélecteur de quantité */
@@ -126,10 +158,10 @@ input {
 select {
   padding: 7px;
   border-radius: 5px;
-  background-color: rgb(43, 43, 43);
-  color: white;
-  border: 1px solid rgb(94, 94, 94);
-  box-sizing: border-box; /* Important pour éviter le débordement */
+  background-color: var(--color-input-bg);
+  color: var(--color-input-text);
+  border: 1px solid var(--color-input-border);
+  box-sizing: border-box;
 }
 
 /* Bouton d'ouverture du menu */
@@ -137,12 +169,12 @@ select {
   background-color: transparent;
   border: none;
   font-size: 2rem;
-  color: white;
+  color: var(--color-primary);
   cursor: pointer;
 }
 
 .menu-toggle-button:hover {
-  color: var(--secondary-color);
+  color: var(--color-secondary);
 }
 
 /* Responsive pour téléphone */
@@ -154,6 +186,10 @@ select {
   .main-section {
     width: 100vw;
     padding: 0.5rem;
+  }
+
+  .big-button {
+    height: 65%;
   }
 
   .header {
@@ -177,4 +213,55 @@ select {
   input {
     width: 80%;
   }
+}
+
+/* Divers */
+.flex-container {
+  display: flex;
+  gap: 8px;
+  height: 100px;
+  padding: 5px;
+}
+
+.section {
+  border-bottom: 1px solid;
+  border-bottom-color: var(--color-tertiary);
+}
+
+
+:root {
+  /* Light theme by default */
+  --color-primary: black;
+  --color-secondary: #007acc;
+  --color-tertiary: rgb(94, 94, 94);
+
+  --color-bg: white;
+  --color-surface: #f5f5f5;
+  --color-border: rgb(180, 180, 180);
+  --color-hover-surface: rgba(0, 0, 0, 0.05);
+  --color-overlay: rgba(0, 0, 0, 0.2);
+
+  --color-input-bg: white;
+  --color-input-border: rgb(180, 180, 180);
+  --color-input-text: black;
+
+  --color-button-text: white;
+}
+
+[data-theme='dark'] {
+  --color-primary: white;
+  --color-secondary: rgb(186, 230, 255);
+  --color-tertiary: rgb(94, 94, 94);
+
+  --color-bg: #101012;
+  --color-surface: #1B1B1E;
+  --color-border: #27272D;
+  --color-hover-surface: #2B2B30;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+
+  --color-input-bg: #1B1B1E;
+  --color-input-border: #404048;
+  --color-input-text: white;
+
+  --color-button-text: black;
 }

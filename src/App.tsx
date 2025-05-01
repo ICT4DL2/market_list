@@ -38,8 +38,6 @@ function App() {
 
         <div className="main-section">
           <Header toggleMenu={() => setMenuOpen(true)} />
-          <h1>Ma liste de marché 🛒</h1>
-
           <Routes>
             {/* Route pour la page d'accueil */}
             <Route path="/" element={<Accueil />} />
