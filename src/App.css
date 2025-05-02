@@ -1,267 +1,131 @@
-:root {
-  --color-primary: white;
-  --color-secondary: rgb(186, 230, 255);
-  --color-tertiary: rgb(94, 94, 94);
-
-  --color-bg: rgb(22, 22, 22);
-  --color-surface: rgb(51, 51, 51);
-  --color-border: rgb(94, 94, 94);
-  --color-hover-surface: rgba(128, 128, 128, 0.4);
-  --color-overlay: rgba(0, 0, 0, 0.6);
-
-  --color-input-bg: rgb(43, 43, 43);
-  --color-input-border: rgb(94, 94, 94);
-  --color-input-text: white;
-
-  --color-button-text: black;
-}
-
-body {
-  margin: 0;
-  background-color: var(--color-bg);
-  color: var(--color-primary);
+/* Style général */
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
   font-family: Arial, sans-serif;
-  overflow-x: hidden;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#root {
-  --color-primary: var(--color-primary);
-  --color-secondary: var(--color-secondary);
-  --color-tertiary: var(--color-tertiary);
-}
-
-/* Structure principale */
-.body {
-  display: flex;
-  flex-direction: row;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* Zone principale */
-.main-section {
-  flex: 1;
-  padding: 20px;
-  transition: margin-left 0.3s ease;
-  overflow: hidden;
-}
-
-/* Header */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--color-surface);
-  padding: 10px 20px;
-  border-bottom: 1px solid var(--color-border);
-}
-
-/* Buttons */
-.big-button {
-  height: 80%;
-  width: calc(50vw - 4px);
+h1, h2 {
   text-align: center;
-  line-height: 30px;
-  color: var(--color-button-text);
-  padding-top: 15px;
-  border-radius: 10px;
-  transition: ease-in 0.5s;
 }
 
-.big-button:hover {
-  filter: brightness(87%);
-  transition: ease-in 0.5s;
+/* Section Budget */
+.budget {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Entrée et Liste */
-.entry, .list {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 9px;
-  padding: 15px;
-  margin-top: 20px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Chaque élément de la liste */
-.list-item {
-  line-height: 1.5rem;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-
-/* Menu latéral */
-.menu-bar {
-  position: fixed;
-  left: -271px;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  background-color: var(--color-bg);
-  border-right: 1px solid var(--color-border);
-  padding: 20px;
-  transition: left 0.3s ease;
-  z-index: 1000;
-  overflow-y: auto;
-}
-
-.menu-bar.active {
-  left: 0;
-}
-
-/* Items du Menu */
-.menu-bar-item {
-  display: flex;
-  align-items: center;
-  width: 90%;
-  padding: 10px;
+.budget input {
+  padding: 8px;
+  font-size: 16px;
+  width: 80%;
   margin-bottom: 10px;
-  border-radius: 5px;
+}
+
+.budget-message {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Formulaire d'ajout */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.quantity {
+  display: flex;
+  gap: 5px;
+}
+
+input, select {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Bouton d'ajout */
+.form button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.menu-bar-item:hover {
-  background-color: var(--color-hover-surface);
+.form button:hover {
+  background-color: #2980b9;
 }
 
-/* Overlay sombre */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Bouton de validation */
+.btn.valid {
+  background-color: #4CAF50;
+  color: white;
   width: 100%;
-  height: 100%;
-  background-color: var(--color-overlay);
-  z-index: 500;
-}
-
-/* Champs input */
-input {
-  padding: 0.5rem;
-  margin-right: 0.5rem;
-  border: 1px solid var(--color-input-border);
-  border-radius: 5px;
-  background-color: var(--color-input-bg);
-  color: var(--color-input-text);
-  box-sizing: border-box;
-}
-
-/* Sélecteur de quantité */
-.qtyselector {
-  width: 50px;
-}
-
-/* Dropdown */
-select {
-  padding: 7px;
-  border-radius: 5px;
-  background-color: var(--color-input-bg);
-  color: var(--color-input-text);
-  border: 1px solid var(--color-input-border);
-  box-sizing: border-box;
-}
-
-/* Bouton d'ouverture du menu */
-.menu-toggle-button {
-  background-color: transparent;
+  padding: 10px;
   border: none;
-  font-size: 2rem;
-  color: var(--color-primary);
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.menu-toggle-button:hover {
-  color: var(--color-secondary);
+.btn.invalid {
+  background-color: #e74c3c;
+  color: white;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: not-allowed;
 }
 
-/* Responsive pour téléphone */
-@media (max-width: 768px) {
-  .menu-bar {
-    width: 200px;
-  }
-
-  .main-section {
-    width: 100vw;
-    padding: 0.5rem;
-  }
-
-  .big-button {
-    height: 65%;
-  }
-
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100vw;
-  }
-
-  .menu-bar-item {
-    font-size: 18px;
-  }
-
-  .body {
-    flex-direction: column;
-  }
-
-  .list {
-    width: 90%;
-  }
-
-  input {
-    width: 80%;
-  }
+/* Articles */
+.articles ul {
+  list-style: none;
+  padding: 0;
 }
 
-/* Divers */
-.flex-container {
+.articles li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Historique */
+.historique {
+  margin-top: 30px;
+}
+
+.historique ul {
+  list-style: none;
+  padding: 0;
+}
+
+.historique-item {
   display: flex;
-  gap: 8px;
-  height: 100px;
-  padding: 5px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
 }
 
-.section {
-  border-bottom: 1px solid;
-  border-bottom-color: var(--color-tertiary);
+.historique-item button {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-
-:root {
-  /* Light theme by default */
-  --color-primary: black;
-  --color-secondary: #007acc;
-  --color-tertiary: rgb(94, 94, 94);
-
-  --color-bg: white;
-  --color-surface: #f5f5f5;
-  --color-border: rgb(180, 180, 180);
-  --color-hover-surface: rgba(0, 0, 0, 0.05);
-  --color-overlay: rgba(0, 0, 0, 0.2);
-
-  --color-input-bg: white;
-  --color-input-border: rgb(180, 180, 180);
-  --color-input-text: black;
-
-  --color-button-text: white;
-}
-
-[data-theme='dark'] {
-  --color-primary: white;
-  --color-secondary: rgb(186, 230, 255);
-  --color-tertiary: rgb(94, 94, 94);
-
-  --color-bg: #101012;
-  --color-surface: #1B1B1E;
-  --color-border: #27272D;
-  --color-hover-surface: #2B2B30;
-  --color-overlay: rgba(0, 0, 0, 0.6);
-
-  --color-input-bg: #1B1B1E;
-  --color-input-border: #404048;
-  --color-input-text: white;
-
-  --color-button-text: black;
+.historique-item button:hover {
+  background-color: #d35400;
 }
