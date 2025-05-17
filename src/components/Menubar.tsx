@@ -12,9 +12,7 @@ export function Menubar({ menuOpen, setMenuOpen }: MenubarProps) {
       <Link to="/" onClick={() => setMenuOpen(false)}>
         <MenuBarItem label="Accueil" />
       </Link>
-      <Link to="/liste" onClick={() => setMenuOpen(false)}>
-        <MenuBarItem label="Liste" />
-      </Link>
+      
       <Link to="/parametres" onClick={() => setMenuOpen(false)}>
         <MenuBarItem label="Paramètres" />
       </Link>

@@ -1,14 +1,17 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+import mkcert from 'vite-plugin-mkcert'
 
 export default defineConfig({
   server: {
-    host: '0.0.0.0', // Permet d'écouter sur toutes les interfaces réseau
-    port: 5173, // Assure-toi d'utiliser le bon port, ici 5173
+    https: true,
+    host: '0.0.0.0', // Accessible sur réseau local
+    port: 5173,
   },
   plugins: [
     react(),
+    mkcert(), // Plugin SSL
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png'],
