@@ -211,6 +211,10 @@ select {
     width: 100vw;
     padding: 0.5rem;
   }
+  .flex-container{
+    flex-direction: column;
+    /**/
+  }
 
   .recent-lists {
     flex-direction: column;
@@ -278,12 +282,23 @@ select {
 }
 
 /* ListEntry.css */
+.flex-container{
+  display: flex;
+  
+}
+.icon-group-container{
+  
+  text-align: left;
+}
+.text-group-container{
+  width: 80%;
+}
 .edit-icon {
   cursor: pointer;
   color: #007bff;
   margin-right: 0.5rem; /* Utilisez une variable CSS si possible */
-  position: relative;
-  left: 1300px;
+ /* position: relative;*/
+ /* left: 1300px;*/
   bottom: 70px;
   
 }
@@ -291,8 +306,6 @@ select {
 .delete-icon {
   cursor: pointer;
   color: #dc3545;
-  position: relative;
-  left: 1340px;
   bottom: 70px;
 }
 

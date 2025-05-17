@@ -53,7 +53,7 @@ const handleDeleteList = (listId: string) => {
 };
 // Fonction pour modifier une liste
 const handleEditList = (list: List) => {
-  setEditingList(list); // Ouvre le formulaire d’édition avec les infos de cette liste
+  setEditingList(list); // Ouvre le formulaire d’édition avec les infos de cette liste;
 };
 
 

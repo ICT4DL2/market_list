@@ -39,8 +39,8 @@ export const ListEntry = ({ item, onRemove, onEdit }: ListEntryProps) => {
       totalPrice: editQuantity * editPrice
     };
 
-    // Ici on passe un seul champ modifiable, donc on peut modifier cette logique si besoin
-    onEdit(item.id, updatedItem); // temporaire, on mettra à jour cela dans App
+    
+    onEdit(item.id, updatedItem); 
 
     // En option : remplace `onEdit` pour accepter l'objet complet (voir suite)
     setIsEditing(false);
@@ -58,19 +58,26 @@ export const ListEntry = ({ item, onRemove, onEdit }: ListEntryProps) => {
     <div className="list-item">
       {!isEditing ? (
         <>
-          <h3>{item.name} - {item.quantity} {item.unit}</h3>
-          
-          <p>Montant : {item.totalPrice} FCFA</p>
-          <Pencil 
-            size={25}
-            className="edit-icon"
-            aria-label="Modifier"
-            onClick={() => setIsEditing(true)} />
-          <Trash2 
-          size={25}
-          className="delete-icon"
-          aria-label="Supprimer"
-          onClick={() => onRemove(item.id)} />
+          <div className='flex-container'>
+              <div className='text-group-container'>
+              <h3>{item.name} - {item.quantity} {item.unit}</h3>
+              
+              <p>Montant : {item.totalPrice} FCFA</p>
+            </div>
+            
+            <div className='icon-group-container'>
+              <Pencil 
+              size={25}
+              className="edit-icon"
+              aria-label="Modifier"
+              onClick={() => setIsEditing(true)} />
+              <Trash2 
+              size={25}
+              className="delete-icon"
+              aria-label="Supprimer"
+              onClick={() => onRemove(item.id)} />
+            </div>
+          </div>
         </>
       ) : (
         <>
@@ -91,6 +98,7 @@ export const ListEntry = ({ item, onRemove, onEdit }: ListEntryProps) => {
             <option value="l">Litre</option>
             <option value="tasse">Tasse</option>
             <option value="seau">Seau</option>
+            <option value="unite">L'unité</option>
           </select>
           <button onClick={handleSaveClick}>Enregistrer</button>
           <button onClick={handleCancelClick}>Annuler</button>
